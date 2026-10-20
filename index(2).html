@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blox Fruits Coaching | Level Up & Dominate PvP</title>
+<meta name="description" content="1-on-1 Blox Fruits coaching from a Max Level, high-bounty player. Speed grinding, PvP combos and raids on a private server.">
+<meta name="theme-color" content="#070B14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Poppins', 'system-ui', 'sans-serif'] },
+        colors: {
+          night: '#070B14',
+          panel: '#0F1626',
+          edge: '#1C2740',
+          volt: '#19C3FF',
+          flame: '#FF5A1F',
+          ink: '#E8EEF9',
+          mute: '#92A3C0'
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #070B14; color: #E8EEF9; }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(25,195,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25,195,255,.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 75%);
+            mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 75%);
+  }
+  .glow-blue  { box-shadow: 0 0 0 1px rgba(25,195,255,.45), 0 0 32px rgba(25,195,255,.18); }
+  .glow-flame { box-shadow: 0 0 0 1px rgba(255,90,31,.55), 0 0 32px rgba(255,90,31,.22); }
+  .grad-text {
+    background: linear-gradient(90deg, #19C3FF, #FF5A1F);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .btn-fire {
+    background: linear-gradient(135deg, #FF5A1F, #FF8A1F);
+    box-shadow: 0 8px 28px rgba(255,90,31,.35);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-fire:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(255,90,31,.5); }
+  .btn-ghost { transition: background .2s ease, border-color .2s ease; }
+  .btn-ghost:hover { background: rgba(25,195,255,.1); border-color: #19C3FF; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #19C3FF; outline-offset: 3px; border-radius: 10px; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
+
+  /* Level bar fills when visible */
+  .xp-fill { width: 0; transition: width 1.6s cubic-bezier(.2,.8,.2,1) .3s; }
+  .in .xp-fill, .in.xp-fill { width: 100%; }
+
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .float { animation: float 5s ease-in-out infinite; }
+
+  /* Roblox profile avatar */
+  .roblox-avatar {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #19C3FF;
+    box-shadow: 0 0 22px rgba(25,195,255,.35);
+    background: #070B14;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .xp-fill { width: 100%; transition: none; }
+    .float { animation: none; }
+    .btn-fire { transition: none; }
+  }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- HERO -->
+<header class="relative overflow-hidden">
+  <div class="grid-bg absolute inset-0 pointer-events-none"></div>
+  <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-volt/20 blur-3xl pointer-events-none"></div>
+  <div class="absolute top-32 -right-24 w-72 h-72 rounded-full bg-flame/20 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-6xl mx-auto px-5 pt-16 pb-20 sm:pt-24 sm:pb-28 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="text-center lg:text-left">
+      <p class="inline-flex items-center gap-2 text-sm text-mute border border-edge bg-panel/70 rounded-full px-4 py-1.5 mb-6">
+        <i class="fa-solid fa-bolt text-flame"></i> Now booking Sea 2 and Sea 3 sessions
+      </p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
+        Master Blox Fruits:<br>
+        <span class="grad-text">Level Up &amp; Dominate PvP</span>
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-mute max-w-xl mx-auto lg:mx-0">
+        1-on-1 expert coaching from a Max Level, High-Bounty Master.
+      </p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+        <a href="#booking" class="btn-fire inline-flex items-center justify-center gap-2 text-white font-semibold text-lg rounded-xl px-8 py-4">
+          <i class="fa-solid fa-calendar-check"></i> Book a Session
+        </a>
+        <a href="#packages" class="btn-ghost inline-flex items-center justify-center gap-2 font-semibold rounded-xl px-8 py-4 border border-edge">
+          See packages
+        </a>
+      </div>
+    </div>
+
+    <!-- HUD-style panel -->
+    <div class="float mx-auto w-full max-w-sm">
+      <div class="glow-blue bg-panel rounded-2xl p-6">
+        <div class="flex items-center gap-4">
+          <img
+            src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-B4262D6D9D326C3AC63BB99A7BD75FD4-Png/420/420/AvatarHeadshot/Png/noFilter"
+            alt="Abhay's Roblox avatar"
+            class="roblox-avatar"
+            width="64"
+            height="64"
+            loading="eager"
+          >
+          <div>
+            <p class="font-bold text-lg">Katructure1029</p>
+            <p class="text-sm text-mute">Sea 3 &bull; Max Level</p>
+          </div>
+        </div>
+        <div class="mt-6">
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-mute">Level</span><span class="font-semibold text-volt">3000</span>
+          </div>
+          <div class="h-3 rounded-full bg-night border border-edge overflow-hidden">
+            <div class="xp-fill h-full rounded-full bg-gradient-to-r from-volt to-flame" id="hero-xp"></div>
+          </div>
+        </div>
+        <div class="mt-5 flex justify-between items-center rounded-xl bg-night border border-edge px-4 py-3">
+          <span class="text-sm text-mute"><i class="fa-solid fa-skull text-flame mr-2"></i>Bounty</span>
+          <span class="font-bold text-flame">30M</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- STATS & PROOF -->
+<section id="proof" class="max-w-6xl mx-auto px-5 py-16 sm:py-20">
+  <div class="reveal max-w-2xl">
+    <h2 class="text-3xl sm:text-4xl font-bold">Learn from someone who has done it</h2>
+    <p class="mt-3 text-mute">No theory-crafting from the sidelines. Everything I teach comes from my own grind and PvP fights.</p>
+  </div>
+
+  <div class="mt-10 grid gap-5 md:grid-cols-3">
+    <article class="reveal d1 glow-blue bg-panel rounded-2xl p-7">
+      <div class="w-12 h-12 rounded-xl bg-volt/15 text-volt grid place-items-center text-xl"><i class="fa-solid fa-trophy"></i></div>
+      <h3 class="mt-5 text-3xl font-extrabold text-volt">Max Level 2550+</h3>
+      <p class="mt-2 text-mute">Fully levelled and stat-optimised. I know the fastest routes through every sea because I have run them all.</p>
+    </article>
+
+    <article class="reveal d2 glow-flame bg-panel rounded-2xl p-7">
+      <div class="w-12 h-12 rounded-xl bg-flame/15 text-flame grid place-items-center text-xl"><i class="fa-solid fa-crosshairs"></i></div>
+      <h3 class="mt-5 text-3xl font-extrabold text-flame">High Bounty Hunter</h3>
+      <p class="mt-2 text-mute">Current bounty: <span class="text-ink font-semibold"> 30M </span>. Earned in real fights against real players.</p>
+    </article>
+
+    <article class="reveal d3 bg-panel rounded-2xl p-7 border border-edge" style="box-shadow:0 0 32px rgba(25,195,255,.08), 0 0 32px rgba(255,90,31,.08)">
+      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-volt/20 to-flame/20 text-ink grid place-items-center text-xl"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3 class="mt-5 text-3xl font-extrabold">Private Server Included</h3>
+      <p class="mt-2 text-mute">Every session runs on my private server. You train safely, with no random bounty hunters interrupting your practice.</p>
+    </article>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages" class="max-w-6xl mx-auto px-5 py-16 sm:py-20">
+  <div class="reveal max-w-2xl">
+    <h2 class="text-3xl sm:text-4xl font-bold">Coaching packages</h2>
+    <p class="mt-3 text-mute">Pick the goal that matches where you are stuck right now.</p>
+  </div>
+
+  <div class="mt-10 grid gap-6 lg:grid-cols-3 items-stretch">
+
+    <article class="reveal d1 bg-panel border border-edge rounded-2xl p-7 flex flex-col">
+      <i class="fa-solid fa-gauge-high text-volt text-2xl"></i>
+      <h3 class="mt-4 text-xl font-bold">Sea 2 &amp; 3 Speed Grinding</h3>
+      <p class="mt-5"><span class="text-4xl font-extrabold">$10</span><span class="text-mute"> / hour</span></p>
+      <ul class="mt-6 space-y-3 text-mute flex-1">
+        <li class="flex gap-3"><i class="fa-solid fa-circle-check text-volt mt-1"></i>Optimal stat distribution</li>
+        <li class="flex gap-3"><i class="fa-solid fa-circle-check text-volt mt-1"></i>Level-farming routes</li>
+      </ul>
+      <a href="#booking" data-package="Sea 2 &amp; 3 Speed Grinding" class="btn-ghost book-package mt-8 text-center font-semibold rounded-xl px-6 py-3.5 border border-volt/60 text-volt">Book this package</a>
+    </article>
+
+    <article class="reveal d2 glow-flame bg-panel rounded-2xl p-7 flex flex-col relative lg:-translate-y-3">
+      <span class="absolute -top-3 left-7 bg-flame text-white text-sm font-semibold rounded-full px-4 py-1">Most popular</span>
+      <i class="fa-solid fa-hand-fist text-flame text-2xl"></i>
+      <h3 class="mt-4 text-xl font-bold">PvP Combo Mastery</h3>
+      <p class="mt-5"><span class="text-4xl font-extrabold">$20</span><span class="text-mute"> / hour</span></p>
+      <ul class="mt-6 space-y-3 text-mute flex-1">
+        <li class="flex gap-3"><i class="fa-solid fa-circle-check text-flame mt-1"></i>Custom combo strings</li>
+        <li class="flex gap-3"><i class="fa-solid fa-circle-check text-flame mt-1"></i>Ken-tricking</li>
+        <li class="flex gap-3"><i class="fa-solid fa-circle-check text-flame mt-1"></i>Movement mechanics</li>
+      </ul>
+      <a href="#booking" data-package="PvP Combo Mastery" class="btn-fire book-package mt-8 text-center text-white font-semibold rounded-xl px-6 py-3.5">Book this package</a>
+    </article>
+
+    <article class="reveal d3 bg-panel border border-edge rounded-2xl p-7 flex flex-col">
+      <i class="fa-solid fa-dragon text-volt text-2xl"></i>
+      <h3 class="mt-4 text-xl font-bold">The Ultimate Raid Pass</h3>
+      <p class="mt-5"><span class="text-4xl font-extrabold">$25</span><span class="text-mute"> / pass</span></p>
+      <ul class="mt-6 space-y-3 text-mute flex-1">
+        <li class="flex gap-3"><i class="fa-solid fa-circle-check text-volt mt-1"></i>Fruit awakening runs</li>
+        <li class="flex gap-3"><i class="fa-solid fa-circle-check text-volt mt-1"></i>Boss-clearing strategies</li>
+      </ul>
+      <a href="#booking" data-package="Sea 2 &amp; 3 Speed Grinding" class="btn-ghost book-package mt-8 text-center font-semibold rounded-xl px-6 py-3.5 border border-volt/60 text-volt">Book this package</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="max-w-6xl mx-auto px-5 py-16 sm:py-20">
+  <div class="reveal max-w-2xl">
+    <h2 class="text-3xl sm:text-4xl font-bold">How it works</h2>
+    <p class="mt-3 text-mute">Three steps from booking to your first lesson.</p>
+  </div>
+
+  <ol class="mt-10 grid gap-5 md:grid-cols-3 relative">
+    <li class="reveal d1 bg-panel border border-edge rounded-2xl p-7">
+      <span class="w-11 h-11 rounded-full grid place-items-center font-extrabold text-night bg-volt">1</span>
+      <h3 class="mt-4 text-xl font-bold">Pick and book</h3>
+      <p class="mt-2 text-mute">Pick your package and book a time that suits you.</p>
+    </li>
+    <li class="reveal d2 bg-panel border border-edge rounded-2xl p-7">
+      <span class="w-11 h-11 rounded-full grid place-items-center font-extrabold text-night bg-gradient-to-br from-volt to-flame">2</span>
+      <h3 class="mt-4 text-xl font-bold">Join the server</h3>
+      <p class="mt-2 text-mute">Join my private Roblox server at your session time.</p>
+    </li>
+    <li class="reveal d3 bg-panel border border-edge rounded-2xl p-7">
+      <span class="w-11 h-11 rounded-full grid place-items-center font-extrabold text-white bg-flame">3</span>
+      <h3 class="mt-4 text-xl font-bold">Learn and rank up</h3>
+      <p class="mt-2 text-mute">Learn, practice combos, and rank up!</p>
+    </li>
+  </ol>
+
+  <div class="reveal mt-12 text-center">
+    <a href="#booking" class="btn-fire inline-flex items-center gap-2 text-white font-semibold text-lg rounded-xl px-8 py-4">
+      <i class="fa-solid fa-calendar-check"></i> Book a Session
+    </a>
+  </div>
+</section>
+
+</main>
+
+
+<!-- BOOKING FORM -->
+<section id="booking" class="max-w-4xl mx-auto px-5 py-16 sm:py-20">
+  <div class="reveal max-w-2xl mx-auto text-center">
+    <p class="inline-flex items-center gap-2 text-sm text-volt border border-volt/30 bg-volt/5 rounded-full px-4 py-1.5">
+      <i class="fa-solid fa-envelope"></i> Session requests
+    </p>
+    <h2 class="mt-5 text-3xl sm:text-4xl font-bold">Book your coaching session</h2>
+    <p class="mt-3 text-mute">Tell me your Roblox username, what you want help with, and when you're available. I'll review your request and reply by email.</p>
+  </div>
+
+  <form action="https://formsubmit.co/abhayroyal399@gmail.com" method="POST"
+        class="reveal mt-10 bg-panel border border-edge rounded-2xl p-5 sm:p-8 grid gap-5">
+    <input type="hidden" name="_subject" value="New Blox Fruits Coaching Booking Request">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="true">
+
+    <!-- Spam-trap field: keep hidden and empty. -->
+    <div aria-hidden="true" style="position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden">
+      <label for="website">Leave this field empty</label>
+      <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div>
+        <label for="customer-name" class="block text-sm font-semibold mb-2">Your name</label>
+        <input id="customer-name" name="name" type="text" autocomplete="name" required maxlength="80"
+          placeholder="Enter your name"
+          class="w-full rounded-xl bg-night border border-edge px-4 py-3 text-ink placeholder:text-mute focus:outline-none focus:border-volt">
+      </div>
+      <div>
+        <label for="customer-email" class="block text-sm font-semibold mb-2">Email address</label>
+        <input id="customer-email" name="email" type="email" autocomplete="email" required maxlength="254"
+          placeholder="you@example.com"
+          class="w-full rounded-xl bg-night border border-edge px-4 py-3 text-ink placeholder:text-mute focus:outline-none focus:border-volt">
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div>
+        <label for="roblox-username" class="block text-sm font-semibold mb-2">Roblox username</label>
+        <input id="roblox-username" name="Roblox username" type="text" required maxlength="50"
+          placeholder="Your Roblox username"
+          class="w-full rounded-xl bg-night border border-edge px-4 py-3 text-ink placeholder:text-mute focus:outline-none focus:border-volt">
+      </div>
+      <div>
+        <label for="service" class="block text-sm font-semibold mb-2">Choose a service</label>
+        <select id="service" name="Requested service" required
+          class="w-full rounded-xl bg-night border border-edge px-4 py-3 text-ink focus:outline-none focus:border-volt">
+          <option value="" disabled selected>Select a package</option>
+          <option>Sea 2 &amp; 3 Speed Grinding</option>
+          <option>PvP Combo Mastery</option>
+          <option>The Ultimate Raid Pass</option>
+          <option>General question</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div>
+        <label for="preferred-date" class="block text-sm font-semibold mb-2">Preferred date (optional)</label>
+        <input id="preferred-date" name="Preferred date" type="date"
+          class="w-full rounded-xl bg-night border border-edge px-4 py-3 text-ink focus:outline-none focus:border-volt">
+      </div>
+      <div>
+        <label for="timezone" class="block text-sm font-semibold mb-2">Time zone / available time</label>
+        <input id="timezone" name="Time zone and availability" type="text" maxlength="100"
+          placeholder="e.g. IST, evenings"
+          class="w-full rounded-xl bg-night border border-edge px-4 py-3 text-ink placeholder:text-mute focus:outline-none focus:border-volt">
+      </div>
+    </div>
+
+    <div>
+      <label for="details" class="block text-sm font-semibold mb-2">What would you like help with?</label>
+      <textarea id="details" name="Message" rows="4" required maxlength="2000"
+        placeholder="Tell me your level, goal, or the skill you want to improve..."
+        class="w-full rounded-xl bg-night border border-edge px-4 py-3 text-ink placeholder:text-mute focus:outline-none focus:border-volt"></textarea>
+    </div>
+
+    <p class="text-sm text-mute">Submitting this form sends your request for review. It does not confirm a booking or require you to share your Roblox password.</p>
+    <button type="submit" class="btn-fire inline-flex items-center justify-center gap-2 text-white font-semibold rounded-xl px-6 py-4">
+      <i class="fa-solid fa-paper-plane"></i> Send booking request
+    </button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-edge mt-10">
+  <div class="max-w-6xl mx-auto px-5 py-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+    <p class="text-sm text-mute">Not affiliated with Roblox or Gamer Robot Inc.</p>
+    <div class="flex items-center gap-3">
+      <a href="#" aria-label="Discord" class="btn-ghost w-11 h-11 rounded-xl border border-edge grid place-items-center text-lg"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://www.roblox.com/users/7746723264/profile" target="_blank" rel="noopener noreferrer" aria-label="Roblox profile" class="btn-ghost w-11 h-11 rounded-xl border border-edge grid place-items-center text-lg"><i class="fa-solid fa-gamepad"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Package buttons select the matching option in the booking form.
+  document.querySelectorAll('.book-package').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var service = document.getElementById('service');
+      if (service) service.value = button.getAttribute('data-package');
+    });
+  });
+
+  // Reveal on scroll
+  (function () {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      items.forEach(function (el) { io.observe(el); });
+    }
+    // Hero level bar fills on load
+    window.addEventListener('load', function () {
+      var xp = document.getElementById('hero-xp');
+      if (xp) xp.classList.add('in');
+    });
+  })();
+</script>
+</body>
+</html>
